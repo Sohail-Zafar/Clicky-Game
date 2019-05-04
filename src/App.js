@@ -13,6 +13,12 @@ class App extends Component {
     friends
   };
   
+  // This function shuffles all the images in the array randomly. It also checks to see if user picks the same card twice and
+  // if user dose pick the same images twice the user looses game and an alert message is displayed. This function also
+  //  checks to see if the user has not pick the image. It then updates the score variable. If the score is higher than high score
+  //  than the score becomes the new high score. It lastly checks to see if the user has won the game by correctly pick all the 
+  //  the images once.
+
     randomShuffle = id => {
     var newFriends = this.state.friends;
     if (this.state.friends[id].hasBeenPicked === true){
@@ -28,6 +34,11 @@ class App extends Component {
     } else {
       newFriends[id].hasBeenPicked = true; 
       score++;
+      if ( score === 12){
+        highScore = score;
+        alert("You won the game");
+        score = 0;
+      };
     } 
     newFriends.sort(() => Math.random() - 0.5);
     this.setState({ newFriends });

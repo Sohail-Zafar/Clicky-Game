@@ -5,7 +5,7 @@ function FriendCard(props) {
   return (
     <div className="card">
       <div className="img-container">
-      <span onClick={() => props.randomShuffle(props.id)} className="shuffle">
+      <span onClick={() => props.randomShuffle(props.index)} className="shuffle">
       <img alt={props.id} src={props.image} height="125" width ="125" />
       </span>
         
